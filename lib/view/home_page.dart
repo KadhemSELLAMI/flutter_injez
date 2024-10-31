@@ -67,21 +67,34 @@ class HomePage extends StatelessWidget {
             child: ListView(
               padding: EdgeInsets.zero,
               children: [
-                ProfileOption(icon: Icons.person, title: 'Personal Data'),
-                ProfileOption(icon: Icons.settings, title: 'Settings'),
                 ProfileOption(
-                    icon: Icons.document_scanner, title: 'E-Statement'),
+                    onClick: () {
+                      Navigator.of(context).pushNamed('profile');
+                    },
+                    icon: Icons.person,
+                    title: 'Personal Data'),
                 ProfileOption(
-                    icon: Icons.card_giftcard, title: 'Referral Code'),
+                    onClick: () {}, icon: Icons.settings, title: 'Settings'),
+                ProfileOption(
+                    onClick: () {},
+                    icon: Icons.document_scanner,
+                    title: 'E-Statement'),
+                ProfileOption(
+                    onClick: () {},
+                    icon: Icons.card_giftcard,
+                    title: 'Referral Code'),
                 Container(
                   margin: EdgeInsets.fromLTRB(30, 10, 30, 10),
                   height: 1,
                   color: Colors
                       .grey[300], // Light grey color for the dividing line
                 ),
-                ProfileOption(icon: Icons.help_outline, title: 'FAQs'),
-                ProfileOption(icon: Icons.book, title: 'Our Handbook'),
-                ProfileOption(icon: Icons.people, title: 'Community'),
+                ProfileOption(
+                    onClick: () {}, icon: Icons.help_outline, title: 'FAQs'),
+                ProfileOption(
+                    onClick: () {}, icon: Icons.book, title: 'Our Handbook'),
+                ProfileOption(
+                    onClick: () {}, icon: Icons.people, title: 'Community'),
               ],
             ),
           ),
@@ -124,8 +137,13 @@ class HomePage extends StatelessWidget {
 class ProfileOption extends StatelessWidget {
   final IconData icon;
   final String title;
+  final void Function()? onClick;
 
-  ProfileOption({super.key, required this.icon, required this.title});
+  const ProfileOption(
+      {super.key,
+      required this.icon,
+      required this.title,
+      required this.onClick});
 
   @override
   Widget build(BuildContext context) {
@@ -134,9 +152,7 @@ class ProfileOption extends StatelessWidget {
       title: Text(title),
       trailing:
           const Icon(Icons.arrow_forward_ios, size: 16, color: Colors.grey),
-      onTap: () {
-        // Add navigation functionality here
-      },
+      onTap: onClick,
     );
   }
 }

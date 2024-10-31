@@ -1,8 +1,6 @@
 import 'package:flutter/material.dart';
-// import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import '../service/auth_service.dart';
-import 'signup_page.dart';
 
 class SigninPage extends StatefulWidget {
   const SigninPage({super.key});
@@ -25,6 +23,7 @@ class SignInPageState extends State<SigninPage> {
         if (user == null) {
           print('User is currently signed out!');
         } else {
+          Navigator.of(context).pushNamed('home');
           print('User is signed in!');
         }
       });
@@ -109,6 +108,7 @@ class SignInPageState extends State<SigninPage> {
                   var user = await _authService.signIn(email, password);
                   if (user != null) {
                     // Connexion réussie
+                    Navigator.of(context).pushNamed('home');
                     print("Connecté : ${user.email}");
                     // Rediriger vers la page principale de l'application après la connexion
                   } else {

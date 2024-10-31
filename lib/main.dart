@@ -1,5 +1,7 @@
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_injez/view/home_page.dart';
+import 'package:flutter_injez/view/profile_page.dart';
 import 'view/signin_page.dart';
 import 'view/signup_page.dart';
 
@@ -29,6 +31,8 @@ class MyApp extends StatelessWidget {
       routes: {
         'signin': (context) => const SigninPage(),
         'signup': (context) => const SignupPage(),
+        'home': (context) => const HomePage(),
+        'profile': (context) => const ProfilePage(),
       },
     );
   }
