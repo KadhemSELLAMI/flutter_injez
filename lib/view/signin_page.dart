@@ -1,20 +1,20 @@
 import 'package:flutter/material.dart';
 // import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
-import 'auth_service.dart'; 
-import 'signp.dart';
-class Signin extends StatefulWidget {
-  const Signin({super.key});
+import '../service/auth_service.dart';
+import 'signup_page.dart';
+
+class SigninPage extends StatefulWidget {
+  const SigninPage({super.key});
 
   @override
-  State<Signin> createState() => SignInState();
+  State<SigninPage> createState() => SignInPageState();
 }
 
-class SignInState extends State<Signin> {
+class SignInPageState extends State<SigninPage> {
   final TextEditingController _emailController = TextEditingController();
   final TextEditingController _passwordController = TextEditingController();
   final AuthService _authService = AuthService();
-
 
   @override
   void initState() {
@@ -41,13 +41,13 @@ class SignInState extends State<Signin> {
           child: Column(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
-              Icon(
+              const Icon(
                 Icons.fingerprint,
                 size: 80,
                 color: Colors.blue,
               ),
-              SizedBox(height: 20),
-              Text(
+              const SizedBox(height: 20),
+              const Text(
                 'Welcome Back',
                 style: TextStyle(
                   fontSize: 24,
@@ -55,51 +55,51 @@ class SignInState extends State<Signin> {
                   color: Colors.blue,
                 ),
               ),
-              SizedBox(height: 8),
-              Text(
+              const SizedBox(height: 8),
+              const Text(
                 'Sign to continue',
                 style: TextStyle(
                   fontSize: 16,
                   color: Colors.grey,
                 ),
               ),
-              SizedBox(height: 40),
+              const SizedBox(height: 40),
               TextField(
                 controller: _emailController,
                 decoration: InputDecoration(
                   labelText: 'EMAIL',
-                  prefixIcon: Icon(Icons.email, color: Colors.blue),
+                  prefixIcon: const Icon(Icons.email, color: Colors.blue),
                   border: OutlineInputBorder(
                     borderRadius: BorderRadius.circular(10),
                   ),
                 ),
               ),
-              SizedBox(height: 20),
+              const SizedBox(height: 20),
               TextField(
                 controller: _passwordController,
                 obscureText: true,
                 decoration: InputDecoration(
                   labelText: 'PASSWORD',
-                  prefixIcon: Icon(Icons.lock, color: Colors.blue),
+                  prefixIcon: const Icon(Icons.lock, color: Colors.blue),
                   border: OutlineInputBorder(
                     borderRadius: BorderRadius.circular(10),
                   ),
                 ),
               ),
-              SizedBox(height: 10),
+              const SizedBox(height: 10),
               Align(
                 alignment: Alignment.centerRight,
                 child: TextButton(
                   onPressed: () {
                     // Code pour mot de passe oublié
                   },
-                  child: Text(
+                  child: const Text(
                     'Forgot Password?',
                     style: TextStyle(color: Colors.blue),
                   ),
                 ),
               ),
-              SizedBox(height: 20),
+              const SizedBox(height: 20),
               ElevatedButton(
                 onPressed: () async {
                   String email = _emailController.text;
@@ -118,30 +118,28 @@ class SignInState extends State<Signin> {
                 },
                 style: ElevatedButton.styleFrom(
                   backgroundColor: Colors.blue,
-                  padding: EdgeInsets.symmetric(horizontal: 100, vertical: 15),
+                  padding:
+                      const EdgeInsets.symmetric(horizontal: 100, vertical: 15),
                   shape: RoundedRectangleBorder(
                     borderRadius: BorderRadius.circular(10),
                   ),
                 ),
-                child: Text(
+                child: const Text(
                   'LOGIN',
                   style: TextStyle(color: Colors.white, fontSize: 16),
                 ),
               ),
-              SizedBox(height: 20),
+              const SizedBox(height: 20),
               Row(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
-                  Text("Don't have account?"),
+                  const Text("Don't have account?"),
                   TextButton(
                     onPressed: () {
                       // Navigation vers la page Signup
-                      Navigator.push(
-                        context,
-                        MaterialPageRoute(builder: (context) => Signup()),
-                      );
+                      Navigator.of(context).pushNamed('signup');
                     },
-                    child: Text(
+                    child: const Text(
                       'create a new account',
                       style: TextStyle(color: Colors.blue),
                     ),

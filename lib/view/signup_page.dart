@@ -1,21 +1,23 @@
 import 'package:flutter/material.dart';
 // import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
-import 'auth_service.dart'; 
+import '../service/auth_service.dart';
 
-class Signup extends StatefulWidget {
-  const Signup({super.key});
+class SignupPage extends StatefulWidget {
+  const SignupPage({super.key});
 
   @override
-  State<Signup> createState() => SignUpState();
+  State<SignupPage> createState() => SignUpPageState();
 }
-class SignUpState extends State<Signup> {
+
+class SignUpPageState extends State<SignupPage> {
   final TextEditingController _usernameController = TextEditingController();
   final TextEditingController _emailController = TextEditingController();
   final TextEditingController _passwordController = TextEditingController();
-  final TextEditingController _phoneController= TextEditingController();
-   final TextEditingController _confirmPasswordController= TextEditingController();
-    final AuthService _authService = AuthService();
+  final TextEditingController _phoneController = TextEditingController();
+  final TextEditingController _confirmPasswordController =
+      TextEditingController();
+  final AuthService _authService = AuthService();
 
   @override
   Widget build(BuildContext context) {
@@ -24,7 +26,7 @@ class SignUpState extends State<Signup> {
         backgroundColor: Colors.white,
         elevation: 0,
         leading: IconButton(
-          icon: Icon(Icons.arrow_back, color: Colors.blue),
+          icon: const Icon(Icons.arrow_back, color: Colors.blue),
           onPressed: () {
             // Code pour retourner à l'écran précédent
           },
@@ -37,7 +39,7 @@ class SignUpState extends State<Signup> {
           child: Column(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
-              Text(
+              const Text(
                 'Create Account',
                 style: TextStyle(
                   fontSize: 24,
@@ -45,74 +47,74 @@ class SignUpState extends State<Signup> {
                   color: Colors.blue,
                 ),
               ),
-              SizedBox(height: 8),
-              Text(
+              const SizedBox(height: 8),
+              const Text(
                 'Create a new account',
                 style: TextStyle(
                   fontSize: 16,
                   color: Colors.grey,
                 ),
               ),
-              SizedBox(height: 20),
+              const SizedBox(height: 20),
               TextField(
                 controller: _emailController,
                 decoration: InputDecoration(
                   labelText: 'NAME',
-                  prefixIcon: Icon(Icons.person, color: Colors.blue),
+                  prefixIcon: const Icon(Icons.person, color: Colors.blue),
                   border: OutlineInputBorder(
                     borderRadius: BorderRadius.circular(10),
                   ),
                 ),
               ),
-              SizedBox(height: 15),
+              const SizedBox(height: 15),
               TextField(
-                 controller: _usernameController,
+                controller: _usernameController,
                 decoration: InputDecoration(
                   labelText: 'EMAIL',
-                  prefixIcon: Icon(Icons.email, color: Colors.blue),
+                  prefixIcon: const Icon(Icons.email, color: Colors.blue),
                   border: OutlineInputBorder(
                     borderRadius: BorderRadius.circular(10),
                   ),
                 ),
               ),
-              SizedBox(height: 15),
+              const SizedBox(height: 15),
               TextField(
-                   controller: _phoneController,
+                controller: _phoneController,
                 decoration: InputDecoration(
                   labelText: 'PHONE',
-                  prefixIcon: Icon(Icons.phone, color: Colors.blue),
+                  prefixIcon: const Icon(Icons.phone, color: Colors.blue),
                   border: OutlineInputBorder(
                     borderRadius: BorderRadius.circular(10),
                   ),
                 ),
               ),
-              SizedBox(height: 15),
+              const SizedBox(height: 15),
               TextField(
                 controller: _passwordController,
                 obscureText: true,
                 decoration: InputDecoration(
                   labelText: 'PASSWORD',
-                  prefixIcon: Icon(Icons.lock, color: Colors.blue),
+                  prefixIcon: const Icon(Icons.lock, color: Colors.blue),
                   border: OutlineInputBorder(
                     borderRadius: BorderRadius.circular(10),
                   ),
                 ),
               ),
-              SizedBox(height: 15),
+              const SizedBox(height: 15),
               TextField(
-               controller: _confirmPasswordController,
+                controller: _confirmPasswordController,
                 obscureText: true,
                 decoration: InputDecoration(
                   labelText: 'CONFIRM PASSWORD',
-                  prefixIcon: Icon(Icons.lock, color: Colors.blue),
+                  prefixIcon: const Icon(Icons.lock, color: Colors.blue),
                   border: OutlineInputBorder(
                     borderRadius: BorderRadius.circular(10),
                   ),
                 ),
               ),
-              SizedBox(height: 20),
+              const SizedBox(height: 20),
               ElevatedButton(
-                 onPressed: () async {
+                onPressed: () async {
                   String email = _emailController.text;
                   String password = _passwordController.text;
                   String confirmPassword = _confirmPasswordController.text;
@@ -133,26 +135,27 @@ class SignUpState extends State<Signup> {
                 },
                 style: ElevatedButton.styleFrom(
                   backgroundColor: Colors.blue,
-                  padding: EdgeInsets.symmetric(horizontal: 100, vertical: 15),
+                  padding:
+                      const EdgeInsets.symmetric(horizontal: 100, vertical: 15),
                   shape: RoundedRectangleBorder(
                     borderRadius: BorderRadius.circular(10),
                   ),
                 ),
-                child: Text(
+                child: const Text(
                   'CREATE ACCOUNT',
                   style: TextStyle(color: Colors.white, fontSize: 16),
                 ),
               ),
-              SizedBox(height: 20),
+              const SizedBox(height: 20),
               Row(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
-                  Text("Already have an account?"),
+                  const Text("Already have an account?"),
                   TextButton(
                     onPressed: () {
-                      // Code pour se connecter
+                      Navigator.of(context).pushNamed('signin');
                     },
-                    child: Text(
+                    child: const Text(
                       'Login',
                       style: TextStyle(color: Colors.blue),
                     ),

@@ -1,21 +1,22 @@
 import 'package:flutter/material.dart';
 import 'package:firebase_core/firebase_core.dart';
-import 'signin.dart';
-import 'signp.dart';
+import 'view/signin_page.dart';
+import 'view/signup_page.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
   await Firebase.initializeApp(
-   options: const FirebaseOptions(
-  apiKey: "AIzaSyBmsTyzR_xkjWzOZ0swX81S61Jt2XvXdGo", 
-  appId: "com.example.flutter_injez",
-  messagingSenderId: "messagingSenderId", 
-  projectId: "flutter-injez")
-  );
-   runApp(MyApp());
+      options: const FirebaseOptions(
+          apiKey: "AIzaSyBmsTyzR_xkjWzOZ0swX81S61Jt2XvXdGo",
+          appId: "com.example.flutter_injez",
+          messagingSenderId: "messagingSenderId",
+          projectId: "flutter-injez"));
+  runApp(const MyApp());
 }
 
 class MyApp extends StatelessWidget {
+  const MyApp({super.key});
+
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
@@ -24,21 +25,11 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         primarySwatch: Colors.blue,
       ),
-      home: Signin(), 
+      home: const SigninPage(),
       routes: {
-        '/signin': (context) => Signin(), 
-        '/signup': (context) => Signup(), 
+        'signin': (context) => const SigninPage(),
+        'signup': (context) => const SignupPage(),
       },
     );
   }
 }
-
-
-
-
-
-
-
-
-
-
