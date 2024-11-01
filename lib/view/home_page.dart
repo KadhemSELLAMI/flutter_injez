@@ -1,10 +1,25 @@
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 
 class HomePage extends StatelessWidget {
   const HomePage({super.key});
 
+  onInit(context) {
+    FirebaseAuth.instance.userChanges().listen((User? user) {
+      if (user == null) {
+        print('User is currently signed out!');
+        Navigator.of(context).pushNamed('signin');
+      }
+      // else {
+      //   Navigator.of(context).pushNamed('home');
+      //   print('User is signed in!');
+      // }
+    });
+  }
+
   @override
   Widget build(BuildContext context) {
+    onInit(context);
     return Scaffold(
       backgroundColor: const Color.fromARGB(255, 250, 252, 255),
       // appBar: AppBar(
@@ -59,7 +74,7 @@ class HomePage extends StatelessWidget {
             ),
           ),
           Container(
-            margin: EdgeInsets.fromLTRB(30, 10, 30, 10),
+            margin: const EdgeInsets.fromLTRB(30, 10, 30, 10),
             height: 1,
             color: Colors.grey[300], // Light grey color for the dividing line
           ),
@@ -84,7 +99,7 @@ class HomePage extends StatelessWidget {
                     icon: Icons.card_giftcard,
                     title: 'Referral Code'),
                 Container(
-                  margin: EdgeInsets.fromLTRB(30, 10, 30, 10),
+                  margin: const EdgeInsets.fromLTRB(30, 10, 30, 10),
                   height: 1,
                   color: Colors
                       .grey[300], // Light grey color for the dividing line
@@ -120,7 +135,7 @@ class HomePage extends StatelessWidget {
         ],
       ),
       bottomNavigationBar: BottomNavigationBar(
-        backgroundColor: Color.fromARGB(255, 250, 252, 255),
+        backgroundColor: const Color.fromARGB(255, 250, 252, 255),
         selectedItemColor: const Color(0xFF5A6F9E),
         unselectedItemColor: Colors.grey,
         items: const [

@@ -5,7 +5,7 @@
     "version": "0.2.0",
     "configurations": [
         {
-            "name": "flutter_injez",
+            "name": "Android",
             "request": "launch",
             "type": "dart",
             "flutterMode": "debug",
@@ -13,10 +13,12 @@
             "args": ["--verbose"]
         },
         {
-            "name": "flutter_injez (profile mode)",
+            "name": "Edge",
             "request": "launch",
             "type": "dart",
-            "flutterMode": "profile"
+            "flutterMode": "debug",
+            "deviceId": "edge",
+            // "args": ["--web-renderer html"]
         },
         {
             "name": "flutter_injez (release mode)",

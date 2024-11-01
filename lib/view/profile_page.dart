@@ -7,15 +7,15 @@ class ProfilePage extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       resizeToAvoidBottomInset: true,
-      backgroundColor: Color.fromARGB(255, 250, 252, 255),
+      backgroundColor: const Color.fromARGB(255, 250, 252, 255),
       appBar: AppBar(
         backgroundColor: Colors.transparent,
         elevation: 0,
         leading: IconButton(
-          icon: Icon(Icons.arrow_back, color: Colors.black),
+          icon: const Icon(Icons.arrow_back, color: Colors.black),
           onPressed: () => Navigator.of(context).pop(),
         ),
-        title: Text(
+        title: const Text(
           'Personal Data',
           style: TextStyle(color: Colors.black, fontWeight: FontWeight.w500),
         ),
@@ -48,8 +48,8 @@ class ProfilePage extends StatelessWidget {
                         color: Colors.blue,
                         borderRadius: BorderRadius.circular(8),
                       ),
-                      padding: EdgeInsets.all(4),
-                      child: Icon(
+                      padding: const EdgeInsets.all(4),
+                      child: const Icon(
                         Icons.camera_alt,
                         color: Colors.white,
                         size: 18,
@@ -58,21 +58,22 @@ class ProfilePage extends StatelessWidget {
                   ),
                 ],
               ),
-              SizedBox(height: 20),
-              InputField(
+              const SizedBox(height: 20),
+              const InputField(
                   label: 'Your Name', initialValue: 'William John Malik'),
-              InputField(
+              const InputField(
                   label: 'Date of Birth', initialValue: '24 December 1999'),
-              InputField(label: 'Your Job', initialValue: 'Successor Designer'),
-              InputField(
+              const InputField(
+                  label: 'Your Job', initialValue: 'Successor Designer'),
+              const InputField(
                   label: 'Monthly Income',
                   initialValue: '\$500 - \$3000 / year'),
-              SizedBox(height: 20),
+              const SizedBox(height: 20),
 
               Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                  Text(
+                  const Text(
                     "Gender",
                     style: TextStyle(
                       fontWeight: FontWeight.bold,
@@ -83,7 +84,7 @@ class ProfilePage extends StatelessWidget {
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: [
                       Container(
-                        padding: EdgeInsets.fromLTRB(10, 10, 60, 10),
+                        padding: const EdgeInsets.fromLTRB(10, 10, 60, 10),
                         decoration: BoxDecoration(
                           color: Colors.white,
                           borderRadius: BorderRadius.circular(12),
@@ -98,12 +99,12 @@ class ProfilePage extends StatelessWidget {
                               groupValue: 'Gender',
                               onChanged: (value) {},
                             ),
-                            Text("Male"),
+                            const Text("Male"),
                           ],
                         ),
                       ),
                       Container(
-                        padding: EdgeInsets.fromLTRB(10, 10, 60, 10),
+                        padding: const EdgeInsets.fromLTRB(10, 10, 60, 10),
                         decoration: BoxDecoration(
                           color: Colors.white,
                           borderRadius: BorderRadius.circular(12),
@@ -118,7 +119,7 @@ class ProfilePage extends StatelessWidget {
                               groupValue: 'Gender',
                               onChanged: (value) {},
                             ),
-                            Text("Male"),
+                            const Text("Male"),
                           ],
                         ),
                       ),
@@ -140,24 +141,24 @@ class ProfilePage extends StatelessWidget {
               //     ),
               //   ],
               // ),
-              SizedBox(height: 20), // Spacer replacement
+              const SizedBox(height: 20), // Spacer replacement
               ElevatedButton(
                 onPressed: () {
                   // Registration button action here
                 },
                 style: ElevatedButton.styleFrom(
-                    minimumSize: Size(double.infinity, 50),
+                    minimumSize: const Size(double.infinity, 50),
                     shape: RoundedRectangleBorder(
                       borderRadius: BorderRadius.circular(12),
                     ),
-                    foregroundColor: Color(0xFF5A6F9E),
-                    backgroundColor: Color.fromARGB(255, 183, 209, 255)),
-                child: Text(
+                    foregroundColor: const Color(0xFF5A6F9E),
+                    backgroundColor: const Color.fromARGB(255, 183, 209, 255)),
+                child: const Text(
                   'Update',
                   style: TextStyle(fontSize: 16, color: Colors.white),
                 ),
               ),
-              SizedBox(height: 20),
+              const SizedBox(height: 20),
             ],
           ),
         ),
@@ -183,12 +184,12 @@ class InputField extends StatelessWidget {
       children: [
         Text(
           label,
-          style: TextStyle(
+          style: const TextStyle(
             fontWeight: FontWeight.bold,
             color: Color.fromARGB(255, 89, 115, 140),
           ),
         ),
-        SizedBox(height: 8),
+        const SizedBox(height: 8),
         TextFormField(
           initialValue: initialValue,
           decoration: InputDecoration(
@@ -213,7 +214,7 @@ class InputField extends StatelessWidget {
             ),
           ),
         ),
-        SizedBox(height: 20),
+        const SizedBox(height: 20),
       ],
     );
   }
